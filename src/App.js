@@ -7,6 +7,7 @@ import Contact from "./component/contact";
 import Generate from "./component/generate";
 import List from "./component/list";
 
+
 function App() {
 
   const size = {
