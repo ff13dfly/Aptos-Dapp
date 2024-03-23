@@ -36,20 +36,20 @@ const self={
     contact:(from,hash,data, ck, network)=>{
         self.init(network,async (aptos)=>{
             const alice=from;         //from account
-            const bobAddress={};    //to account
+            //const bobAddress={};    //to account
 
             // build a transaction
             const transaction = await aptos.transaction.build.simple({
                 sender: alice.accountAddress,
                 data: {
-                    function: hash,    
-                    functionArguments: [bobAddress, 100],   //传给合约的信息
+                    function: `${hash}::birds_nft::mint`,    
+                    functionArguments: [data.content, hash],   //传给合约的信息
                     //functionArguments: [bobAddress, 100],
                     //typeArguments: ["0x1::aptos_coin::AptosCoin"],
                 },
             });
             
-            // // using sign and submit separately
+            // using sign and submit separately
             const senderAuthenticator = aptos.transaction.sign({
                 signer: alice,
                 transaction,

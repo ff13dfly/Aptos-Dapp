@@ -26,9 +26,11 @@ function Contact(props) {
 
     const self={
         clickCall:(ev)=>{
-            // APT.contact(account,hash,{},(res)=>{
-            //     console.log(res);
-            // },Network.DEVNET);
+            APT.generate((pair)=>{
+                APT.contact(pair,hash,{content:"hello"},(res)=>{
+                    console.log(res);
+                },Network.DEVNET);
+            });
         }
     };
 
