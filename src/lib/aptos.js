@@ -16,10 +16,18 @@ const self={
         }
         return ck && ck(link);
     },
+    height:(network,ck)=>{
+        self.init(network,(aptos)=>{
+            aptos.getLedgerInfo().then((res)=>{
+                return ck && ck(res);
+            }).catch((error) => {
+                return ck && ck(error);
+            });
+        });
+    },
     generate:(ck,seed)=>{
-        //console.log(Account);
         const acc = Account.generate();
-        console.log(acc);
+        return ck && ck(acc);
     },
     wallet:(ck)=>{
 

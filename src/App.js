@@ -1,5 +1,11 @@
-import { Container, Modal } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
+
+import Current from "./component/block";
+import Account from "./component/account";
+import Contact from "./component/contact";
+import Generate from "./component/generate";
+import List from "./component/list";
 
 function App() {
 
@@ -13,7 +19,13 @@ function App() {
   }, []);
 
   return (
-    <Container></Container>
+    <Container>
+      <Current />
+      <Generate />
+      <Account />
+      <List />
+      <Contact />
+    </Container>
   );
 }
 
